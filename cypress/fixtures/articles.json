@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "slug": "The-normal-Title-113651",
+      "title": "The normal Title",
+      "description": "This is a description",
+      "body": "This is a body of the article",
+      "tagList": [],
+      "createdAt": "2022-11-11T00:04:44.926Z",
+      "updatedAt": "2022-11-11T00:04:44.926Z",
+      "favorited": false,
+      "favoritesCount": 1,
+      "author": {
+        "username": "Kadir",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "slug": "The-Title-1-113651",
+      "title": "The Title 1",
+      "description": "This is a description",
+      "body": "This is a body of the article",
+      "tagList": [],
+      "createdAt": "2022-11-09T23:50:31.019Z",
+      "updatedAt": "2022-11-09T23:50:31.019Z",
+      "favorited": false,
+      "favoritesCount": 5,
+      "author": {
+        "username": "Kadir",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ],
+  "articlesCount": 2
+}
