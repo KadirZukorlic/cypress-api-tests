@@ -1,9 +1,12 @@
 describe("Test with backend", () => {
   beforeEach("login to application", () => {
+    cy.intercept("GET", "https://api.realworld.io/api/tags", {
+      fixture: "tags.json",
+    });
     cy.loginToApplication();
   });
 
-  it.only("Verify correct request and response", () => {
+  it("Verify correct request and response", () => {
     cy.intercept("POST", "https://api.realworld.io/api/articles/").as(
       "postArticles"
     );
@@ -24,5 +27,12 @@ describe("Test with backend", () => {
         "This is a description"
       );
     });
+  });
+
+  it("Verify popular tags that are displayed", () => {
+    cy.get(".tag-list")
+      .should("contain", "cypress")
+      .and("contain", "automation")
+      .and("contain", "testing");
   });
 });
