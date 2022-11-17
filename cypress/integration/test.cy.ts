@@ -21,7 +21,6 @@ describe("Test with backend", () => {
     cy.contains("Publish Article").click();
 
     cy.wait("@postArticles").then((xhr) => {
-      console.log(xhr);
       expect(xhr.response.statusCode).to.equal(200);
       expect(xhr.request.body.article.body).to.equal(
         "This is a body of the article"
@@ -62,7 +61,7 @@ describe("Test with backend", () => {
     });
   });
 
-  it.only("Verify popular tags that are displayed", () => {
+  it("Verify popular tags that are displayed", () => {
     cy.get(".tag-list")
       .should("contain", "cypress")
       .and("contain", "automation")
@@ -92,6 +91,46 @@ describe("Test with backend", () => {
         `https://api.realworld.io/api/articles/${articleLink}/favorite`
       );
     });
-    cy.get("app-article-list button").eq(1).click().should("contain", "6");
+    cy.get("app-article-list button").eq(1).click().should("contain", "5");
+  });
+
+  it("Delete a new article in a global feed", () => {
+    const bodyRequest = {
+      article: {
+        tagList: [],
+        title: "Request from API",
+        description: "API testing",
+        body: "Angular is cool? :D",
+      },
+    };
+
+    cy.get("token").then((token) => {
+      cy.request({
+        url: "https://api.realworld.io/api/articles/",
+        headers: {
+          Authorization: "Token " + token,
+          method: "POST",
+          body: bodyRequest,
+        },
+      }).then((response) => {
+        expect(response.status).to.equal(200);
+      });
+
+      cy.contains("Global Feed").click();
+      cy.get(".article-preview").first().click();
+      cy.get(".article-actions")
+        .contains("Delete Article")
+        .click({ force: true });
+
+      cy.request({
+        url: "https://conduit.productionready.io/api/articles?limit=10&offset=0",
+        headers: { Authorization: "Token " + token },
+        method: "GET",
+      })
+        .its("body")
+        .then((body) => {
+          expect(body.articles[0].title).not.to.equal("Request from API");
+        });
+    });
   });
 });

@@ -43,8 +43,35 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add("loginToApplication", () => {
-  cy.visit("/login");
-  cy.get('[placeholder="Email"]').type("kadir.zukorlic@test.com");
-  cy.get('[placeholder="Password"]').type("kadir123");
-  cy.get("form").submit();
+  // Headless authentication
+
+  const userCredentials = {
+    user: {
+      email: "kadir.zukorlic@test.com",
+      password: "kadir123",
+    },
+  };
+
+  cy.request(
+    "POST",
+    "https://conduit.productionready.io/api/users/login",
+    userCredentials
+  )
+    .its("body")
+    .then((body) => {
+      const token = body.user.token;
+
+      cy.wrap(token).as("token");
+
+      cy.visit("/", {
+        onBeforeLoad(win) {
+          win.localStorage.setItem("jwtToken", token);
+        },
+      });
+    });
+
+  // cy.visit("/login");
+  // cy.get('[placeholder="Email"]').type("kadir.zukorlic@test.com");
+  // cy.get('[placeholder="Password"]').type("kadir123");
+  // cy.get("form").submit();
 });
