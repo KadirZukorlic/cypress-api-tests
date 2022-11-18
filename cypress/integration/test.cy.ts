@@ -9,6 +9,7 @@ describe("Tests with backend", () => {
   });
 
   it("verify correct request and response", () => {
+    // this test has a problem because only unique title is allowed, and it fails after first time if we dont delete what we posted in this test
     cy.intercept("POST", "https://api.realworld.io/api/articles/").as(
       "postArticles"
     );
