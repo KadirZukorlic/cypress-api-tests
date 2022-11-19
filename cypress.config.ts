@@ -5,6 +5,9 @@ export default defineConfig({
   viewportWidth: 1920,
   video: false,
   screenshotOnRunFailure: false,
+  env: {
+    apiUrl: "https://api.realworld.io"
+  },
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
