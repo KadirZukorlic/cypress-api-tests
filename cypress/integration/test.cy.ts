@@ -91,15 +91,5 @@ describe("Tests with backend", () => {
   //     cy.get(".article-preview").first().click();
   //     cy.get(".article-actions").contains("Delete Article").click();
 
-  //     cy.request({
-  //       url: Cypress.env("apiUrl") + "/api/articles?limit=10&offset=0",
-  //       headers: { Authorization: "Token " + token },
-  //       method: "GET",
-  //     })
-  //       .its("body")
-  //       .then((body) => {
-  //         expect(body.articles[0].title).not.to.equal("Request from the API");
-  //       });
-  //   });
-  // });
+          cy.contains("Global Feed").click();
 });
