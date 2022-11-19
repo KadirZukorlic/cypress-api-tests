@@ -1,11 +1,15 @@
 /// <reference types="cypress" />
 
 describe("Tests with backend", () => {
+  let randomNumber: number;
   beforeEach("login to application", () => {
     cy.intercept("GET", "https://api.realworld.io/api/tags", {
       fixture: "tags.json",
     });
     cy.loginToApplication();
+
+    randomNumber = Math.random();
+
   });
 
   it("verify correct request and response", () => {
@@ -15,7 +19,7 @@ describe("Tests with backend", () => {
     );
 
     cy.contains("New Article").click();
-    cy.get('[formcontrolname="title"]').type("This is the title");
+    cy.get('[formcontrolname="title"]').type("This is the title" + randomNumber.toString());
     cy.get('[formcontrolname="description"]').type("This is a description");
     cy.get('[formcontrolname="body"]').type("This is a body of the article");
     cy.contains("Publish Article").click();
@@ -67,29 +71,40 @@ describe("Tests with backend", () => {
     cy.get("app-article-list button").eq(1).click().should("contain", "6");
   });
 
-  // it("delete a new article in a global feed", () => {
-  //   const bodyRequest = {
-  //     article: {
-  //       tagList: [],
-  //       title: "Request from the API",
-  //       description: "API testing is easy",
-  //       body: "Angular is cool",
-  //     },
-  //   };
+  it("delete a new article in a global feed", () => {
+    const bodyRequest = {
+      "article": {
+        "tagList": [],
+        "title": "Request from the API",
+        "description": "API testing is easy",
+        "body": "Angular is cool",
+      },
+    };
 
-  //   cy.get("@token").then((token) => {
-  //     cy.request({
-  //       url: Cypress.env("apiUrl") + "/api/articles/",
-  //       headers: { Authorization: "Token " + token },
-  //       method: "POST",
-  //       body: bodyRequest,
-  //     }).then((response) => {
-  //       expect(response.status).to.equal(200);
-  //     });
+    cy.get("@token").then((token) => {
+      cy.request({
+        url: Cypress.env("apiUrl") + "/api/articles/",
+        headers: { "Authorization": "Token " + token },
+        method: "POST",
+        body: bodyRequest,
+      }).then((response) => {
+        expect(response.status).to.equal(200);
+      });
 
-  //     cy.contains("Global Feed").click();
-  //     cy.get(".article-preview").first().click();
-  //     cy.get(".article-actions").contains("Delete Article").click();
+      cy.contains("Global Feed").click();
+      cy.get(".article-preview").first().click();
+      cy.get(".article-actions").contains(" Delete Article ").click();
 
-          cy.contains("Global Feed").click();
+      cy.request({
+        url: Cypress.env("apiUrl") + "/api/articles?limit=10&offset=0",
+        headers: { "Authorization": "Token " + token },
+        method: "GET",
+      })
+        .its("body")
+        .then((body) => {
+          // this line is problematic, address it later if you got time :D
+          expect(body.articles[0].title).to.equal("Request from the API");
+        });
+    });
+  });
 });
