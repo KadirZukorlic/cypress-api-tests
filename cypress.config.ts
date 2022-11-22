@@ -6,7 +6,11 @@ export default defineConfig({
   video: false,
   screenshotOnRunFailure: false,
   env: {
-    apiUrl: "https://api.realworld.io"
+    apiUrl: "https://api.realworld.io",
+  },
+  retries: {
+    runMode: 1,
+    openMode: 0,
   },
   e2e: {
     setupNodeEvents(on, config) {
