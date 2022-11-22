@@ -5,6 +5,7 @@ export default defineConfig({
   viewportWidth: 1920,
   video: false,
   screenshotOnRunFailure: false,
+  reporter: "cypress-multi-reporters, mocha",
   env: {
     apiUrl: "https://api.realworld.io",
   },

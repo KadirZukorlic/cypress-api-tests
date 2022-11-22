@@ -1,0 +1,6 @@
+<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Tue, 22 Nov 2022 23:40:13 GMT" time="10.409">
+<testcase classname="Tests with backend" name="verify correct request and response" time="3.851"/>
+<testcase classname="Tests with backend" name="verify popular tags are displayed" time="1.358"/>
+<testcase classname="Tests with backend" name="verify global feed likes count" time="1.398"/>
+<testcase classname="Tests with backend" name="delete a new article in a global feed" time="3.715"/>
+</testsuite>
