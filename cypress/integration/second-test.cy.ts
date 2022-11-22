@@ -8,6 +8,6 @@ describe("Test log out", () => {
   it("Verify use can log out successfully", { retries: 1 }, () => {
     cy.contains("Settings").click();
     cy.contains("Or click here to logout").click();
-    cy.get(".navbar-nav").should("contain", "Sign up 1");
+    cy.get(".navbar-nav").should("contain", "Sign up");
   });
 });
