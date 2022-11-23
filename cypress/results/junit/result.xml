@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<testsuites>
+<testsuite name="Root Suite" timestamp="2022-11-23T00:01:48" tests="0" file="cypress\integration\second-test.cy.ts" time="0.000" failures="0"></testsuite>
+<testsuite name="Test log out" timestamp="2022-11-23T00:01:48" tests="1" time="3.596" failures="0">
+  
+  <testcase name="Test log out Verify use can log out successfully" time="3.563" classname="Verify use can log out successfully"></testcase>
+  
+</testsuite>
+
+<testsuite name="Root Suite" timestamp="2022-11-23T00:01:53" tests="0" file="cypress\integration\test.cy.ts" time="0.000" failures="0"></testsuite>
+<testsuite name="Tests with backend" timestamp="2022-11-23T00:01:53" tests="4" time="10.536" failures="0">
+  
+  <testcase name="Tests with backend verify correct request and response" time="4.025" classname="verify correct request and response"></testcase>
+  
+  <testcase name="Tests with backend verify popular tags are displayed" time="1.396" classname="verify popular tags are displayed"></testcase>
+  
+  <testcase name="Tests with backend verify global feed likes count" time="1.491" classname="verify global feed likes count"></testcase>
+  
+  <testcase name="Tests with backend delete a new article in a global feed" time="3.524" classname="delete a new article in a global feed"></testcase>
+  
+</testsuite>
+
+</testsuites>
