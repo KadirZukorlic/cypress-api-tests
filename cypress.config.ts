@@ -6,6 +6,9 @@ export default defineConfig({
   video: false,
   screenshotOnRunFailure: false,
   reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    configFile: "reporter-config.json",
+  },
   env: {
     apiUrl: "https://api.realworld.io",
   },
