@@ -1,7 +1,12 @@
 FROM cypress/base:16.5.0
 
-RUN npm install --save-dev cypress
+RUN mkdir /app
+WORKDIR /app
+
+COPY . /app
+
+RUN npm install
 
 RUN $(npm bin)/cypress verify
 
-RUN $(npm bin)/cypress run
+RUN ["npm", "run", "cypress:e2e"]
