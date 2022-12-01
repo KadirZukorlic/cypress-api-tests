@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="9.974" tests="4" failures="1">
+  <testsuite name="Root Suite" timestamp="2022-12-01T22:56:35" tests="0" file="cypress\integration\test.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Tests with backend" timestamp="2022-12-01T22:56:35" tests="4" time="9.945" failures="1">
+    <testcase name="Tests with backend verify correct request and response" time="4.529" classname="verify correct request and response">
+    </testcase>
+    <testcase name="Tests with backend verify popular tags are displayed" time="1.994" classname="verify popular tags are displayed">
+    </testcase>
+    <testcase name="Tests with backend verify global feed likes count" time="1.382" classname="verify global feed likes count">
+    </testcase>
+    <testcase name="Tests with backend delete a new article in a global feed" time="0.806" classname="delete a new article in a global feed">
+      <failure message="`cy.request()` failed on:
+
+https://api.realworld.io/api/articles/
+
+The response we received from your web server was:
+
+  &gt; 422: Unprocessable Entity
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://api.realworld.io/api/articles/
+Headers: {
+  &quot;Connection&quot;: &quot;keep-alive&quot;,
+  &quot;Authorization&quot;: &quot;Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZGlyLnp1a29ybGljQHRlc3QuY29tIiwidXNlcm5hbWUiOiJLYWRpciIsImlhdCI6MTY2OTkzNTQwNCwiZXhwIjoxNjc1MTE5NDA0fQ.ZEcljIC4Qw8PByHsRFf5UgOVt0rR095ngHHQAqpmBvE&quot;,
+  &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/10.11.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36&quot;,
+  &quot;accept&quot;: &quot;*/*&quot;,
+  &quot;accept-encoding&quot;: &quot;gzip, deflate&quot;,
+  &quot;content-type&quot;: &quot;application/json&quot;,
+  &quot;content-length&quot;: 118
+}
+Body: {&quot;article&quot;:{&quot;tagList&quot;:[],&quot;title&quot;:&quot;Request from the API&quot;,&quot;description&quot;:&quot;API testing is easy&quot;,&quot;body&quot;:&quot;Angular is cool&quot;}}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 422 - Unprocessable Entity
+Headers: {
+  &quot;date&quot;: &quot;Thu, 01 Dec 2022 22:56:45 GMT&quot;,
+  &quot;content-type&quot;: &quot;application/json; charset=utf-8&quot;,
+  &quot;content-length&quot;: &quot;39&quot;,
+  &quot;connection&quot;: &quot;keep-alive&quot;,
+  &quot;x-powered-by&quot;: &quot;Express&quot;,
+  &quot;access-control-allow-origin&quot;: &quot;*&quot;,
+  &quot;etag&quot;: &quot;W/\&quot;27-BNeuaWQ7DHvW/r+pl+qdJiF06Is\&quot;&quot;,
+  &quot;via&quot;: &quot;1.1 vegur&quot;,
+  &quot;cf-cache-status&quot;: &quot;DYNAMIC&quot;,
+  &quot;report-to&quot;: &quot;{\&quot;endpoints\&quot;:[{\&quot;url\&quot;:\&quot;https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=8qypuvrx6ENMgbbAPIoMtEC0Rkdg%2F0pE27%2BJYlu7JGGwbGdZTRhNkELC%2FCyHI1q9RLrWFJAIHKaQGFndoKQJj7R2%2FdEewZnipDQHxFtR897PK%2Bc97KTRY%2BviuJlTL4oMmjXY\&quot;}],\&quot;group\&quot;:\&quot;cf-nel\&quot;,\&quot;max_age\&quot;:604800}&quot;,
+  &quot;nel&quot;: &quot;{\&quot;success_fraction\&quot;:0,\&quot;report_to\&quot;:\&quot;cf-nel\&quot;,\&quot;max_age\&quot;:604800}&quot;,
+  &quot;server&quot;: &quot;cloudflare&quot;,
+  &quot;cf-ray&quot;: &quot;772f6afa9b2ec214-VIE&quot;,
+  &quot;alt-svc&quot;: &quot;h3=\&quot;:443\&quot;; ma=86400, h3-29=\&quot;:443\&quot;; ma=86400&quot;
+}
+Body: {
+  &quot;errors&quot;: {
+    &quot;title&quot;: [
+      &quot;must be unique&quot;
+    ]
+  }
+}
+
+
+https://on.cypress.io/request" type="CypressError"><![CDATA[CypressError: `cy.request()` failed on:
+
+https://api.realworld.io/api/articles/
+
+The response we received from your web server was:
+
+  > 422: Unprocessable Entity
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://api.realworld.io/api/articles/
+Headers: {
+  "Connection": "keep-alive",
+  "Authorization": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthZGlyLnp1a29ybGljQHRlc3QuY29tIiwidXNlcm5hbWUiOiJLYWRpciIsImlhdCI6MTY2OTkzNTQwNCwiZXhwIjoxNjc1MTE5NDA0fQ.ZEcljIC4Qw8PByHsRFf5UgOVt0rR095ngHHQAqpmBvE",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/10.11.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 118
+}
+Body: {"article":{"tagList":[],"title":"Request from the API","description":"API testing is easy","body":"Angular is cool"}}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 422 - Unprocessable Entity
+Headers: {
+  "date": "Thu, 01 Dec 2022 22:56:45 GMT",
+  "content-type": "application/json; charset=utf-8",
+  "content-length": "39",
+  "connection": "keep-alive",
+  "x-powered-by": "Express",
+  "access-control-allow-origin": "*",
+  "etag": "W/\"27-BNeuaWQ7DHvW/r+pl+qdJiF06Is\"",
+  "via": "1.1 vegur",
+  "cf-cache-status": "DYNAMIC",
+  "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=8qypuvrx6ENMgbbAPIoMtEC0Rkdg%2F0pE27%2BJYlu7JGGwbGdZTRhNkELC%2FCyHI1q9RLrWFJAIHKaQGFndoKQJj7R2%2FdEewZnipDQHxFtR897PK%2Bc97KTRY%2BviuJlTL4oMmjXY\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+  "nel": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+  "server": "cloudflare",
+  "cf-ray": "772f6afa9b2ec214-VIE",
+  "alt-svc": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+}
+Body: {
+  "errors": {
+    "title": [
+      "must be unique"
+    ]
+  }
+}
+
+
+https://on.cypress.io/request
+    at <unknown> (http://localhost:4200/__cypress/runner/cypress_runner.js:144155:80)
+    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:11318:23)
+    at Promise._settlePromiseFromHandler (http://localhost:4200/__cypress/runner/cypress_runner.js:9253:31)
+    at Promise._settlePromise (http://localhost:4200/__cypress/runner/cypress_runner.js:9310:18)
+    at Promise._settlePromise0 (http://localhost:4200/__cypress/runner/cypress_runner.js:9355:10)
+    at Promise._settlePromises (http://localhost:4200/__cypress/runner/cypress_runner.js:9435:18)
+    at _drainQueueStep (http://localhost:4200/__cypress/runner/cypress_runner.js:6025:12)
+    at _drainQueue (http://localhost:4200/__cypress/runner/cypress_runner.js:6018:9)
+    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:4200/__cypress/runner/cypress_runner.js:6034:5)
+    at Async.drainQueues (http://localhost:4200/__cypress/runner/cypress_runner.js:5904:14)
+From Your Spec Code:
+    at Context.eval (webpack:///./cypress/integration/test.cy.ts:85:9)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

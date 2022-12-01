@@ -13,7 +13,7 @@
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
     "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
-    "cypress:run": "npx cypress run",
+    "cypress:run": "npx cypress run 8d05ec66-f3be-4150-b233-6be278027201",
     "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run"
   },
   "pre-commit": [
